@@ -10,6 +10,6 @@
   contains a health-check endpoint that is used by liveness probe on the kubernetes.
  
 ### Usage
-- `docker-compose up` // will start ready-to-run app with its redis dep.
-- `npm test` // runs small test suite
-- `npm start` // start app in host machine, local redis instance must be running
+- `docker-compose up` // will start a ready-to-run app with its redis dep.
+- `npm test` // runs a small test suite
+- `npm start` // starts an app in the host machine, local redis instance must be running
