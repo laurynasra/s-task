@@ -6,6 +6,8 @@ const {
   ip,
 } = require('./config');
 
+const redisClient = require('./services/redis');
+
 const app = require('./app');
 
 // Start the server on port 8000 or process.env.PORT
@@ -14,7 +16,8 @@ const server = app.listen(port, ip, () => {
 });
 
 onAppTermination((signal, signalCode) => {
-  server.close(() => {
+  server.close(async () => {
+    await redisClient.end(true);
     console.info(`server stopped by ${signal} with value ${signalCode}`);
     process.exit(0);
   });

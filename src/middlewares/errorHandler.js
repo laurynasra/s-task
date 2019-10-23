@@ -1,5 +1,5 @@
 const HttpStatus = require('http-status-codes');
-const { MESSAGES } = require('../modules/quotes/quotes.constants');
+const { MESSAGES } = require('../constants');
 
 module.exports = {
   errorHandler(err, req, res, next) {

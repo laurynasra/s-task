@@ -1,14 +1,16 @@
 const express = require('express');
 const HttpStatus = require('http-status-codes');
 const Big = require('big.js');
+const validator = require('express-joi-validation')({});
+const { quotesSchema } = require('./quotes.validator');
 const { MAX_DECIMAL_POINTS } = require('../../../config');
 
 const router = express.Router();
-const { QuotesError } = require('../../../modules/quotes/quotes.constants');
-const { getRate } = require('../../../modules/quotes/rates');
+const { QuotesError } = require('../../../constants');
+const { getRate } = require('../../../modules/rates');
 
 const route = () => {
-  router.get('/', async (req, res, next) => {
+  router.get('/', [validator.query(quotesSchema)], async (req, res, next) => {
     const {
       required_currency_code: requiredCurrencyCode,
       amount,

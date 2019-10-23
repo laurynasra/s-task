@@ -5,7 +5,8 @@ const common = {
   port: process.env.NODE_PORT || 8000,
   ip: process.env.NODE_IP || '0.0.0.0',
   FIXER_API_KEY: process.env.FIXER_API_KEY || '4dbf5cb219b3d435806705032052ae63',
-  MAX_DECIMAL_POINTS: '6',
+  MAX_DECIMAL_POINTS: 6,
+  REDIS_URL: process.env.REDIS_URL || '',
 };
 
 const config = {
